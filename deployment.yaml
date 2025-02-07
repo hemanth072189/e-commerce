@@ -23,4 +23,4 @@ spec:
       volumes:
       - name: html-volume
         configMap:
-          name: my-snake-html
+          name: my-webapp-html
