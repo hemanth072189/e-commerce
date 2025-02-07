@@ -25,7 +25,7 @@ pipeline {
         stage('Config-map') {
             steps {
                 echo 'checkout'
-                sh 'sudo kubectl create configmap my-snake-html --from-file=index.html'
+                sh 'sudo kubectl create configmap my-webapp-html --from-file=index.html'
             }
         }
         stage('get_deployment') {
