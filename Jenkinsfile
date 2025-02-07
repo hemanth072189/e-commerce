@@ -19,34 +19,34 @@ pipeline {
         stage('service') {
             steps {
                 echo 'checkout'
-                sh 'kubectl apply -f service.yaml'
+                sh 'sudo kubectl apply -f service.yaml'
             }
         }
         stage('Config-map') {
             steps {
                 echo 'checkout'
-                sh 'kubectl create configmap my-webapp-html --from-file=index.html'
+                sh 'sudo kubectl create configmap my-webapp-html --from-file=index.html'
             }
         }
         stage('get_deployment') {
             steps {
                 echo 'checkout'
-                sh 'kubectl get deployment -n test'
-                sh 'kubectl describe deployment my-webapp -n test'
+                sh 'sudo kubectl get deployment -n test'
+                sh 'sudo kubectl describe deployment my-webapp -n test'
             }
         }
         stage('get_service') {
             steps {
                 echo 'checkout'
-                sh 'kubectl get svc -n test'
-                sh 'kubectl describe svc my-webapp-service -n test'
+                sh 'sudo kubectl get svc -n test'
+                sh 'sudo kubectl describe svc my-webapp-service -n test'
             }
         }
         stage('get_configmap') {
             steps {
                 echo 'checkout'
-                sh 'kubectl get cm -n test'
-                sh 'kubectl describe cm my-webapp-html -n test'
+                sh 'sudo kubectl get cm -n test'
+                sh 'sudo kubectl describe cm my-webapp-html -n test'
             }
         }
     }
