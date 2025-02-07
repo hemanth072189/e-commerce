@@ -1,6 +1,9 @@
 pipeline {
     agent any
 
+    environmnet {
+        KUBECONFIG = '/root/.kube/config'
+    }
     stages {
         stage('scm') {
             steps {
